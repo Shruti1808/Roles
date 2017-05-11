@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using Roles.ViewModels
+
+@model RegisterViewModel
+
+<h2>Register a new user</h2>
+<hr />
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+ <table>
+        <tr>
+            <td><label asp-for="UserName">Username</label></td>
+            <td>@Html.TextBoxFor(m => m.UserName, new { @class = "form-control", type = "text", required = "required" })</td>
+        </tr>
+        <tr>
+            <td><label asp-for="Password">Password</label></td>
+            <td>@Html.TextBoxFor(m => m.Password, new { @class = "form-control", type = "password", required = "required" })</td>
+        </tr>
+        <tr>
+            <td><label asp-for="ConfirmPassword">Confirm Password</label></td>
+            <td>@Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", type = "password", required = "required" })</td>
+        </tr>
+        <tr>
+            <td><label asp-for="Email">Email</label></td>
+            <td>@Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "text", required = "required" })</td>
+        </tr>
+        <tr>
+            <td><label asp-for="FullName">Full Name</label></td>
+            <td>@Html.TextBoxFor(m => m.FullName, new { @class = "form-control", type = "text", required = "required" })</td>
+        </tr>
+        <tr>
+            <td><label asp-for="BirthDate">Birthdate</label></td>
+            <td>@Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control", type ="date", required = "required" })</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Register" />
+            </td>
+        </tr>
+    </table>
+}
+    <div asp-validation-summary="All"></div>
+</form>
